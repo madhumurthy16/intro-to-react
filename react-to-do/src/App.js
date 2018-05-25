@@ -35,12 +35,24 @@ class App extends Component {
     this.setState( { newToDoDescription: e.target.value });
   }
 
+  
+
+  deleteToDo(index){
+    let todos = this.state.todos.slice();
+    todos.splice(index, 1);
+    this.setState( {todos: todos } );        
+  }
+
 render() {
     return (
       <div className="App">
         <ul>
         	{ this.state.todos.map( (todo, index) => 
-              <ToDo key={index} description={todo.description} isCompleted={todo.isCompleted} toggleComplete={ () => this.toggleCompleted(index)}/>
+              <ToDo key={index} 
+                    description={todo.description} 
+                    isCompleted={todo.isCompleted} 
+                    toggleComplete={ () => this.toggleCompleted(index)}
+                    deleteToDo={ () => this.deleteToDo(index) }/>
             )}
         	
         </ul>
