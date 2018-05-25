@@ -35,8 +35,6 @@ class App extends Component {
     this.setState( { newToDoDescription: e.target.value });
   }
 
-  
-
   deleteToDo(index){
     let todos = this.state.todos.slice();
     todos.splice(index, 1);
